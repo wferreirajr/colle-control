@@ -11,6 +11,6 @@ public class Cadastro {
 
     @Override
     public String toString() {
-        return String.format("Nome: %s", this.nome)
+        return String.format("Nome: %s", this.nome);
     }
 }
