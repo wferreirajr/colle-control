@@ -1,1 +1,1 @@
-nome,email,telefone,endereco,numero,complemento,bairro,cidade,estado,cep,sobrenome,cpf,datanascimento,formacao,materialecionadas,professor,status,matricula,salario
+Nome,Email,Telefone,Endereco,Numero,Complemento,Bairro,Cidade,Estado,Cep,Sobrenome,CPF,Datanascimento,Formacao,Materialecionadas,Professor,Status,Matricula,Salario

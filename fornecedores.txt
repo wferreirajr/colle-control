@@ -1,1 +1,1 @@
-nome,email,telefone,endereco,numero,complemento,bairro,cidade,estado,cep,razaosocial,cnpj,contato,status
+Nome,Email,Telefone,Endereco,Numero,Complemento,Bairro,Cidade,Estado,Cep,Razaosocial,CNPJ,Contato,Status

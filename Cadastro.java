@@ -1,3 +1,7 @@
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.Scanner;
 // COMENTARIO WILSON
 
@@ -124,23 +128,60 @@ public class Cadastro {
         pessoa.setNumero(leitor.nextInt());
     }
 
-    public void NewConsulta(String NewConsulta) {
+    public void NewConsulta(String NewConsulta) throws FileNotFoundException {
 
         switch (NewConsulta) {
         case "ConProf":
-            System.out.println("Consulta Prof");
+            lerDados("professores.txt");
             break;
 
         case "ConForn":
-            System.out.println("Consulta Forn");
+            lerDados("fornecedores.txt");
             break;
 
         case "ConAlu":
-            System.out.println("Consulta Auno");
+            lerDados("alunos.txt");
             break;
 
         }
 
     }
 
+    public static void lerDados(String nomeArquivo) throws FileNotFoundException {
+
+        try (BufferedReader buffRead = new BufferedReader(new FileReader(nomeArquivo))) {
+
+            String cab1 = buffRead.readLine();
+            String linha = buffRead.readLine();
+
+            if (linha != null) {
+                int contaCad = 0;
+                while (true) {
+
+                    if (linha != null) {
+                        contaCad++;
+                        System.out.println("\n\n>>>CADASTRO---" + contaCad + "<<<\n");
+
+                        String[] vect = linha.split(",");
+                        String[] vectCab = cab1.split(",");
+
+                        for (int i = 0; i < vect.length; i++) {
+                            System.out.print(vectCab[i] + ": ");
+                            System.out.println(vect[i]);
+                        }
+
+                    } else {
+                        System.out.print("\n\n >>> O SISTEMA LISTOU " + contaCad + " CADASTRO <<<\n");
+                        break;
+                    }
+
+                    linha = buffRead.readLine();
+                }
+            } else {
+                System.out.println(
+                        "\n\nO sistema não localizou dados cadastrados! \n \n Escolha outra opção no menu principal!\n");
+            }
+        } catch (IOException e) {
+        }
+    }
 }
