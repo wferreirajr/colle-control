@@ -1,5 +1,9 @@
+import java.io.File;
+import java.io.FileWriter;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+
+import javax.lang.model.element.Element;
 
 public class Principal {
     public static void printMenu(String[] options) {
@@ -11,10 +15,44 @@ public class Principal {
     }
 
     public static void main(String[] args) {
+        String[] files = {"professores.txt", "fornecedores.txt", "alunos.txt"};
+        String headerF = "nome,email,telefone,endereco,numero,complemento,bairro,cidade,estado,cep,razaosocial,cnpj,contato,status";
+        String headerP = "nome,email,telefone,endereco,numero,complemento,bairro,cidade,estado,cep,sobrenome,cpf,datanascimento,formacao,materialecionadas,professor,status,matricula,salario";
+        String headerA = "nome,email,telefone,endereco,numero,complemento,bairro,cidade,estado,cep,sobrenome,cpf,datanascimento,formacao,cursocursando,alunostatus,matricula";
+
+        for (String file : files) {
+            try {
+                File checkFile = new File(file);
+
+                if (checkFile.createNewFile()) {
+                    FileWriter flWrite = new FileWriter(file);
+
+                    System.out.println("Arquivo criado: " + checkFile.getName());
+                    if (file == "professores.txt") {
+                        flWrite.write(headerP);
+                        flWrite.append(System.getProperty("line.separator"));
+                        flWrite.close();                        
+                    } if (file == "fornecedores.txt") {
+                        flWrite.write(headerF);
+                        flWrite.append(System.getProperty("line.separator"));
+                        flWrite.close();  
+                    } if (file == "alunos.txt") {
+                        flWrite.write(headerA);
+                        flWrite.append(System.getProperty("line.separator"));
+                        flWrite.close();  
+                    } 
+                } else {
+                    System.out.println("Arquivo já existe: " + checkFile.getName());
+                }
+            } catch (Exception e) {
+                System.out.println("Ocorreu erro");
+                e.printStackTrace();
+            }
+        }    
+
         Cadastro cad = new Cadastro();
 
-
-        System.out.print("\033[H\033[2J");
+        /* System.out.print("\033[H\033[2J"); */
         System.out.flush();
         String[] options = {
                 
