@@ -52,7 +52,7 @@ public class Principal {
 
         Cadastro cad = new Cadastro();
 
-        /* System.out.print("\033[H\033[2J"); */
+        System.out.print("\033[H\033[2J");
         System.out.flush();
         String[] options = {
                 
