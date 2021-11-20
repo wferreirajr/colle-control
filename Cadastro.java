@@ -17,10 +17,10 @@ public class Cadastro {
             System.out.print("Digite o Sobrenome: ");
             newProf.setSobrenome(leitor.nextLine());
 
-            System.out.print("Digite o seu CPF no formato: 000.000.000-00 ");
+            System.out.print("Digite o seu CPF no formato: 000.000.000-00: ");
             newProf.setCpf(leitor.nextLine());
 
-            System.out.print("Digite a data de nascimento no formato: 00/00/0000");
+            System.out.print("Digite a data de nascimento no formato: 00/00/0000: ");
             newProf.setDataNascimento(leitor.nextLine());
 
             System.out.print("Digite a formação do professor: ");
