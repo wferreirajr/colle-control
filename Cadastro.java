@@ -46,7 +46,7 @@ public class Cadastro {
             System.out.print("Digite a razão social: ");
             neWForn.setRazaoSocial(leitor.nextLine());
 
-            System.out.print("Digite o CNPJ no formato: XX. XXX. XXX/0001-XX");
+            System.out.print("Digite o CNPJ no formato: XX. XXX. XXX/0001-XX: ");
             neWForn.setCnpj(leitor.nextLine());
 
             break;
