@@ -4,11 +4,17 @@ import java.util.Scanner;
 public class Cadastro {
 
     public void NewCadastro(int NewCadastro) {
+        System.out.print("\033[H\033[2J");
         Scanner leitor = new Scanner(System.in);
         Pessoa pessoa = new Pessoa();
 
-        System.out.print("Digite o primeiro Nome: ");
-        pessoa.setNome(leitor.nextLine());
+        if (NewCadastro == 1) {
+            System.out.print("Digite o primeiro Nome: ");
+            pessoa.setNome(leitor.nextLine());
+        } else if (NewCadastro == 3) {
+            System.out.print("Digite o primeiro Nome: ");
+            pessoa.setNome(leitor.nextLine());
+        }
 
         switch (NewCadastro) {
 
@@ -18,37 +24,44 @@ public class Cadastro {
             System.out.print("Digite o Sobrenome: ");
             newProf.setSobrenome(leitor.nextLine());
 
-            System.out.print("Digite o seu CPF no formato: 000.000.000-00: ");
+            System.out.print("Digite o seu CPF no formato (00.000.000/0000-00): ");
             newProf.setCpf(leitor.nextLine());
 
-            System.out.print("Digite a data de nascimento no formato: 00/00/0000: ");
+            System.out.print("Digite a data de nascimento no formato (dd/MM/YYYY): ");
             newProf.setDataNascimento(leitor.nextLine());
 
             System.out.print("Digite a formação do professor: ");
             newProf.setFormacao(leitor.nextLine());
 
-            System.out.print("Digite as materios lecionadas pelo professor (separador ;): ");
+            System.out.print("Digite as materios lecionadas pelo professor (separado por ;): ");
             newProf.setMateiraLecionadas(leitor.nextLine());
 
             System.out.print("Digite o status do professor (true / false): ");
             newProf.setProfessorStatus(leitor.nextBoolean());
 
-            System.out.print("Digite a matricula do professor (ex. 123456): ");
+            System.out.print("Digite a matricula do professor (ex. 000000): ");
             newProf.setMatricula(leitor.nextInt());
 
-            System.out.print("Digite o salário professor: (ex. 10.000.00)");
+            System.out.print("Digite o salário professor: (ex. 10000.00): ");
             newProf.setSalario(leitor.nextDouble());
 
             break;
 
         case 2:
+            Juridica juridica = new Juridica();
             Fornecedor neWForn = new Fornecedor();
 
             System.out.print("Digite a razão social: ");
-            neWForn.setRazaoSocial(leitor.nextLine());
+            juridica.setRazaoSocial(leitor.nextLine());
 
-            System.out.print("Digite o CNPJ no formato: XX. XXX. XXX/0001-XX: ");
-            neWForn.setCnpj(leitor.nextLine());
+            System.out.print("Digite o CNPJ no formato (00.000.000/0000-00): ");
+            juridica.setCnpj(leitor.nextLine());
+
+            System.out.print("Digite o nome do contato: ");
+            neWForn.setContato(leitor.nextLine());
+
+            System.out.print("Digite o status do fornecedor (true / false): ");
+            neWForn.setStatus(leitor.nextBoolean());
 
             break;
 
@@ -58,10 +71,10 @@ public class Cadastro {
             System.out.print("Digite o Sobrenome: ");
             newAlu.setSobrenome(leitor.nextLine());
 
-            System.out.print("Digite o seu CPF no formato: 000.000.000-00 ");
+            System.out.print("Digite o seu CPF no formato (000.000.000-00): ");
             newAlu.setCpf(leitor.nextLine());
 
-            System.out.print("Digite a data de nascimento no formato: 00/00/0000");
+            System.out.print("Digite a data de nascimento no formato (dd/MM/YYYY): ");
             newAlu.setDataNascimento(leitor.nextLine());
 
             System.out.print("Digite qual curso o Aluno esta cursando: ");
@@ -77,13 +90,13 @@ public class Cadastro {
             System.out.print("Digite a formação do Aluno: ");
             newAlu.setFormacao(leitor.nextLine());
 
-            System.out.print("Informe a Matricula do Aluno: ");
+            System.out.print("Informe a Matricula do Aluno (ex. 000000): ");
             newAlu.setMatricula(leitor.nextInt());
 
             break;
         }
 
-        System.out.print("Digite o Email: ");
+        System.out.print("Digite o Email formato (xxxxxx@yyy.com): ");
         pessoa.setEmail(leitor.nextLine());
 
         System.out.print("Digite o Telefone: ");
