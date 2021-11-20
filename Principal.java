@@ -3,8 +3,6 @@ import java.io.FileWriter;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-import javax.lang.model.element.Element;
-
 public class Principal {
     public static void printMenu(String[] options) {
 
@@ -82,13 +80,13 @@ public class Principal {
                 cad.NewCadastro(3);
                 break;
             case 4:
-                cad.optConsultaPfs();
+                cad.NewConsulta("ConProf");
                 break;
             case 5:
-                cad.optConsultaFncd();
+                cad.NewConsulta("ConForn");
                 break;
             case 6:
-                cad.optConsultaAln();
+                cad.NewConsulta("ConAlu");
                 break;
             case 50:
                 printMenu(options);
