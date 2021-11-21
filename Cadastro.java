@@ -4,11 +4,14 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
-// COMENTARIO WILSON
 
 public class Cadastro {
 
+    String dadosCadas = "";
     String dadosProf = "";
+    String dadosForn = "";
+    String dadosAlun = "";
+    int selUsuario = 0;
 
     public void NewCadastro(int NewCadastro) {
         System.out.print("\033[H\033[2J");
@@ -18,11 +21,11 @@ public class Cadastro {
         if (NewCadastro == 1) {
             System.out.print("Digite o primeiro Nome: ");
             pessoa.setNome(leitor.nextLine());
-            dadosProf = pessoa.getNome();
+            dadosCadas = pessoa.getNome();
         } else if (NewCadastro == 3) {
             System.out.print("Digite o primeiro Nome: ");
             pessoa.setNome(leitor.nextLine());
-            dadosProf = pessoa.getNome();
+            dadosAlun = pessoa.getNome();
         }
 
         switch (NewCadastro) {
@@ -70,15 +73,19 @@ public class Cadastro {
 
             System.out.print("Digite a razão social: ");
             juridica.setRazaoSocial(leitor.nextLine());
+            dadosForn += "," + juridica.getRazaoSocial();
 
             System.out.print("Digite o CNPJ no formato (00.000.000/0000-00): ");
             juridica.setCnpj(leitor.nextLine());
+            dadosForn += "," + juridica.getCnpj();
 
             System.out.print("Digite o nome do contato: ");
             neWForn.setContato(leitor.nextLine());
+            dadosForn += "," + neWForn.getContato();
 
             System.out.print("Digite o status do fornecedor (true / false): ");
             neWForn.setStatus(leitor.nextBoolean());
+            dadosForn += "," + neWForn.getStatus();
 
             break;
 
@@ -87,12 +94,15 @@ public class Cadastro {
 
             System.out.print("Digite o Sobrenome: ");
             newAlu.setSobrenome(leitor.nextLine());
+            dadosAlun += newAlu.getSobrenome();
 
             System.out.print("Digite o seu CPF no formato (000.000.000-00): ");
             newAlu.setCpf(leitor.nextLine());
+            dadosAlun += newAlu.getCpf();
 
             System.out.print("Digite a data de nascimento no formato (dd/MM/YYYY): ");
             newAlu.setDataNascimento(leitor.nextLine());
+            // dadosAlun += newAlu.getSobrenome();
 
             System.out.print("Digite qual curso o Aluno esta cursando: ");
             newAlu.setCursoCursando(leitor.nextLine());
@@ -116,42 +126,52 @@ public class Cadastro {
         pessoa.setEmail(leitor.nextLine());
         System.out.print("Digite o Email formato (xxxxxx@yyy.com): ");
         pessoa.setEmail(leitor.nextLine());
-        dadosProf += ","+pessoa.getEmail();
+        dadosCadas += ","+pessoa.getEmail();
 
         System.out.print("Digite o Telefone: ");
         pessoa.setTelefone(leitor.nextLine());
-        dadosProf += ","+pessoa.getTelefone();
+        dadosCadas += ","+pessoa.getTelefone();
 
         System.out.print("Digite o Endereco: ");
         pessoa.setEndereco(leitor.nextLine());
-        dadosProf += ","+pessoa.getEndereco();
+        dadosCadas += ","+pessoa.getEndereco();
 
         System.out.print("Digite o Bairro: ");
         pessoa.setBairro(leitor.nextLine());
-        dadosProf += ","+pessoa.getBairro();
+        dadosCadas += ","+pessoa.getBairro();
 
         System.out.print("Digite o Complemento: ");
         pessoa.setComplemento(leitor.nextLine());
-        dadosProf += ","+pessoa.getComplemento();
+        dadosCadas += ","+pessoa.getComplemento();
 
         System.out.print("Digite o Cidade: ");
         pessoa.setCidade(leitor.nextLine());
-        dadosProf += ","+pessoa.getCidade();
+        dadosCadas += ","+pessoa.getCidade();
 
         System.out.print("Digite o Estado: ");
         pessoa.setEstado(leitor.nextLine());
-        dadosProf += ","+pessoa.getEstado();
+        dadosCadas += ","+pessoa.getEstado();
 
-        System.out.print("Digite o Cep: ");
+        System.out.print("Digite o Cep, somente números (ex. 09120163): ");
         pessoa.setCep(leitor.nextInt());
-        dadosProf += ","+pessoa.getCep();
+        dadosCadas += ","+pessoa.getCep();
 
-        System.out.print("Digite o Numero: ");
+        System.out.print("Digite o Numero, somente números: ");
         pessoa.setNumero(leitor.nextInt());
-        dadosProf += ","+pessoa.getNumero();
+        dadosCadas += ","+pessoa.getNumero();
 
         System.out.println("Gravando os dados !!!");
-        gravaDados(dadosProf);
+
+        if (NewCadastro == 1) {
+            String dadosCad = dadosCadas+dadosProf;
+            gravaDadosProf(dadosCad);
+        } if (NewCadastro == 2) {
+            String dadosForn = dadosCadas+dadosForn;
+            gravaDadosForn(dadosForn);
+        } if (NewCadastro == 3) {
+            System.out.println("SELECAO ALU: "+NewCadastro);
+        }
+
     }
 
     public void NewConsulta(String NewConsulta) throws FileNotFoundException {
@@ -211,12 +231,39 @@ public class Cadastro {
         }
     }
 
-    public static void gravaDados(String dados) {
+    public static void gravaDadosProf(String dados) {
         try {
             FileWriter flWrite = new FileWriter("professores.txt", true);
             flWrite.append(dados);
             flWrite.append(System.getProperty("line.separator"));
             flWrite.close();
+            System.out.println("Os dados foram gravados com sucesso !!!");
+        } catch (Exception e) {
+            System.out.println("Ocorreu erro");
+            e.printStackTrace();
+        }
+    }
+
+    public static void gravaDadosForn(String dados) {
+        try {
+            FileWriter flWrite = new FileWriter("fornecedores.txt", true);
+            flWrite.append(dados);
+            flWrite.append(System.getProperty("line.separator"));
+            flWrite.close();
+            System.out.println("Os dados foram gravados com sucesso !!!");
+        } catch (Exception e) {
+            System.out.println("Ocorreu erro");
+            e.printStackTrace();
+        }
+    }
+
+    public static void gravaDadosAlu(String dados) {
+        try {
+            FileWriter flWrite = new FileWriter("alunos.txt", true);
+            flWrite.append(dados);
+            flWrite.append(System.getProperty("line.separator"));
+            flWrite.close();
+            System.out.println("Os dados foram gravados com sucesso !!!");
         } catch (Exception e) {
             System.out.println("Ocorreu erro");
             e.printStackTrace();
