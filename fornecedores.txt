@@ -1,1 +1,2 @@
-Nome,Email,Telefone,Endereco,Numero,Complemento,Bairro,Cidade,Estado,Cep,Razaosocial,CNPJ,Contato,Status
+Razaosocial,CNPJ,Contato,Status,Email,Telefone,Endereco,Bairro,Complemento,Cidade,Estado,Cep,Numero
+WF Materiais,11.222.333/0001-99,Gabriela,true,gabriela@soares.com.br,11 12345-7890,Miriam,Centreville,,SP,SP,1234565,31

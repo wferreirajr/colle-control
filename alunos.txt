@@ -1,1 +1,2 @@
-Nome,Email,Telefone,Endereco,Numero,Complemento,Bairro,Cidade,Estado,Cep,Sobrenome,CPF,Datanascimento,Formacao,Cursocursando,Alunostatus,Matricula
+Nome,Sobrenome,CPF,Datanascimento,Formacao,Cursocursando,Alunostatus,Matricula,Email,Telefone,Endereco,Bairro,Complemento,Cidade,Estado,Cep,Numero
+Wilson,Ferreira,123.321.456-33,17/09/1977,tecnica,analise desenvolvimento de sistema,true,123456,wilson@soares.com.br,11 98765-7766,Miriam,Centreville,,Santo André,SP,123456,31

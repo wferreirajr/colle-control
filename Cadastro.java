@@ -37,7 +37,7 @@ public class Cadastro {
             newProf.setSobrenome(leitor.nextLine());
             dadosProf += ","+newProf.getSobrenome();
 
-            System.out.print("Digite o seu CPF no formato (00.000.000/0000-00): ");
+            System.out.print("Digite o seu CPF no formato (000.000.000-00): ");
             newProf.setCpf(leitor.nextLine());
             dadosProf += ","+newProf.getCpf();            
 
@@ -73,7 +73,7 @@ public class Cadastro {
 
             System.out.print("Digite a razão social: ");
             juridica.setRazaoSocial(leitor.nextLine());
-            dadosForn += "," + juridica.getRazaoSocial();
+            dadosForn = juridica.getRazaoSocial();
 
             System.out.print("Digite o CNPJ no formato (00.000.000/0000-00): ");
             juridica.setCnpj(leitor.nextLine());
@@ -94,31 +94,36 @@ public class Cadastro {
 
             System.out.print("Digite o Sobrenome: ");
             newAlu.setSobrenome(leitor.nextLine());
-            dadosAlun += newAlu.getSobrenome();
+            dadosAlun += "," + newAlu.getSobrenome();
 
             System.out.print("Digite o seu CPF no formato (000.000.000-00): ");
             newAlu.setCpf(leitor.nextLine());
-            dadosAlun += newAlu.getCpf();
+            dadosAlun += "," + newAlu.getCpf();
 
             System.out.print("Digite a data de nascimento no formato (dd/MM/YYYY): ");
             newAlu.setDataNascimento(leitor.nextLine());
-            // dadosAlun += newAlu.getSobrenome();
+            dadosAlun += "," + newAlu.getDataNascimento();
+
+            System.out.print("Digite a formação do Aluno: ");
+            newAlu.setFormacao(leitor.nextLine());
+            dadosAlun += "," + newAlu.getFormacao();
 
             System.out.print("Digite qual curso o Aluno esta cursando: ");
             newAlu.setCursoCursando(leitor.nextLine());
+            dadosAlun += "," + newAlu.getCursoCursando();
 
             System.out.print("Digite AT se o aluno estiver ativo ou NA para não ativo: ");
             if (leitor.nextLine().equalsIgnoreCase("AT")) {
                 newAlu.setAlunoStatus(true);
+                dadosAlun += "," + newAlu.getAlunoStatus();
             } else {
                 newAlu.setAlunoStatus(false);
+                dadosAlun += "," + newAlu.getAlunoStatus();
             }
-
-            System.out.print("Digite a formação do Aluno: ");
-            newAlu.setFormacao(leitor.nextLine());
 
             System.out.print("Informe a Matricula do Aluno (ex. 000000): ");
             newAlu.setMatricula(leitor.nextInt());
+            dadosAlun += "," + newAlu.getMatricula();
 
             break;
         }
@@ -166,10 +171,11 @@ public class Cadastro {
             String dadosCad = dadosCadas+dadosProf;
             gravaDadosProf(dadosCad);
         } if (NewCadastro == 2) {
-            String dadosForn = dadosCadas+dadosForn;
-            gravaDadosForn(dadosForn);
+            String dadosFornecedor = dadosForn+dadosCadas;
+            gravaDadosForn(dadosFornecedor);
         } if (NewCadastro == 3) {
-            System.out.println("SELECAO ALU: "+NewCadastro);
+            String dadosAluno = dadosAlun+dadosCadas;
+            gravaDadosAlu(dadosAluno);
         }
 
     }

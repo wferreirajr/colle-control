@@ -15,9 +15,9 @@ public class Principal {
 
     public static void main(String[] args) throws FileNotFoundException {
         String[] files = { "professores.txt", "fornecedores.txt", "alunos.txt" };
-        String headerF = "Nome,Email,Telefone,Endereco,Numero,Complemento,Bairro,Cidade,Estado,Cep,Razaosocial,CNPJ,Contato,Status";
+        String headerF = "Razaosocial,CNPJ,Contato,Status,Email,Telefone,Endereco,Bairro,Complemento,Cidade,Estado,Cep,Numero";
         String headerP = "Nome,Email,Telefone,Endereco,Bairro,Complemento,Cidade,Estado,Cep,Numero,Sobrenome,CPF,Datanascimento,Formacao,Materialecionadas,ProfessorStatus,Matricula,Salario";
-        String headerA = "Nome,Email,Telefone,Endereco,Numero,Complemento,Bairro,Cidade,Estado,Cep,Sobrenome,CPF,Datanascimento,Formacao,Cursocursando,Alunostatus,Matricula";
+        String headerA = "Nome,Sobrenome,CPF,Datanascimento,Formacao,Cursocursando,Alunostatus,Matricula,Email,Telefone,Endereco,Bairro,Complemento,Cidade,Estado,Cep,Numero";
 
         for (String file : files) {
             try {

@@ -1,2 +1,2 @@
 Nome,Email,Telefone,Endereco,Bairro,Complemento,Cidade,Estado,Cep,Numero,Sobrenome,CPF,Datanascimento,Formacao,Materialecionadas,ProfessorStatus,Matricula,Salario
-Nome,email,9,rua,bairro,compl,cidade,estado,9120,31,Sobrenome,1221,nascimento,formacao,materias,true,123,10.0
+Marli,marli@sores.com.br,11 12345-7766,Rua Miriam,Centreville,,Santo André,SP,1234,31,Soares,123.123.123-99,07/10/1980,Bio Medicina,Bio Medicina,true,123456,20000.0
