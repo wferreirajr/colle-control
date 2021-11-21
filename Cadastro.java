@@ -1,11 +1,14 @@
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 // COMENTARIO WILSON
 
 public class Cadastro {
+
+    String dadosProf = "";
 
     public void NewCadastro(int NewCadastro) {
         System.out.print("\033[H\033[2J");
@@ -15,9 +18,11 @@ public class Cadastro {
         if (NewCadastro == 1) {
             System.out.print("Digite o primeiro Nome: ");
             pessoa.setNome(leitor.nextLine());
+            dadosProf = pessoa.getNome();
         } else if (NewCadastro == 3) {
             System.out.print("Digite o primeiro Nome: ");
             pessoa.setNome(leitor.nextLine());
+            dadosProf = pessoa.getNome();
         }
 
         switch (NewCadastro) {
@@ -27,27 +32,35 @@ public class Cadastro {
 
             System.out.print("Digite o Sobrenome: ");
             newProf.setSobrenome(leitor.nextLine());
+            dadosProf += ","+newProf.getSobrenome();
 
             System.out.print("Digite o seu CPF no formato (00.000.000/0000-00): ");
             newProf.setCpf(leitor.nextLine());
+            dadosProf += ","+newProf.getCpf();            
 
             System.out.print("Digite a data de nascimento no formato (dd/MM/YYYY): ");
             newProf.setDataNascimento(leitor.nextLine());
+            dadosProf += ","+newProf.getDataNascimento();
 
             System.out.print("Digite a formação do professor: ");
             newProf.setFormacao(leitor.nextLine());
+            dadosProf += ","+newProf.getFormacao();
 
             System.out.print("Digite as materios lecionadas pelo professor (separado por ;): ");
             newProf.setMateiraLecionadas(leitor.nextLine());
+            dadosProf += ","+newProf.getMateiraLecionadas();
 
             System.out.print("Digite o status do professor (true / false): ");
             newProf.setProfessorStatus(leitor.nextBoolean());
+            dadosProf += ","+newProf.getProfessorStatus();
 
             System.out.print("Digite a matricula do professor (ex. 000000): ");
             newProf.setMatricula(leitor.nextInt());
+            dadosProf += ","+newProf.getMatricula();
 
             System.out.print("Digite o salário professor: (ex. 10000.00): ");
             newProf.setSalario(leitor.nextDouble());
+            dadosProf += ","+newProf.getSalario();
 
             break;
 
@@ -100,32 +113,45 @@ public class Cadastro {
             break;
         }
 
+        pessoa.setEmail(leitor.nextLine());
         System.out.print("Digite o Email formato (xxxxxx@yyy.com): ");
         pessoa.setEmail(leitor.nextLine());
+        dadosProf += ","+pessoa.getEmail();
 
         System.out.print("Digite o Telefone: ");
         pessoa.setTelefone(leitor.nextLine());
+        dadosProf += ","+pessoa.getTelefone();
 
         System.out.print("Digite o Endereco: ");
         pessoa.setEndereco(leitor.nextLine());
+        dadosProf += ","+pessoa.getEndereco();
 
         System.out.print("Digite o Bairro: ");
         pessoa.setBairro(leitor.nextLine());
+        dadosProf += ","+pessoa.getBairro();
 
         System.out.print("Digite o Complemento: ");
         pessoa.setComplemento(leitor.nextLine());
+        dadosProf += ","+pessoa.getComplemento();
 
         System.out.print("Digite o Cidade: ");
         pessoa.setCidade(leitor.nextLine());
+        dadosProf += ","+pessoa.getCidade();
 
         System.out.print("Digite o Estado: ");
         pessoa.setEstado(leitor.nextLine());
+        dadosProf += ","+pessoa.getEstado();
 
         System.out.print("Digite o Cep: ");
         pessoa.setCep(leitor.nextInt());
+        dadosProf += ","+pessoa.getCep();
 
         System.out.print("Digite o Numero: ");
         pessoa.setNumero(leitor.nextInt());
+        dadosProf += ","+pessoa.getNumero();
+
+        System.out.println("Gravando os dados !!!");
+        gravaDados(dadosProf);
     }
 
     public void NewConsulta(String NewConsulta) throws FileNotFoundException {
@@ -182,6 +208,18 @@ public class Cadastro {
                         "\n\nO sistema não localizou dados cadastrados! \n \n Escolha outra opção no menu principal!\n");
             }
         } catch (IOException e) {
+        }
+    }
+
+    public static void gravaDados(String dados) {
+        try {
+            FileWriter flWrite = new FileWriter("professores.txt", true);
+            flWrite.append(dados);
+            flWrite.append(System.getProperty("line.separator"));
+            flWrite.close();
+        } catch (Exception e) {
+            System.out.println("Ocorreu erro");
+            e.printStackTrace();
         }
     }
 }

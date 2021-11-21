@@ -1,5 +1,1 @@
 Nome,Email,Telefone,Endereco,Numero,Complemento,Bairro,Cidade,Estado,Cep,Sobrenome,CPF,Datanascimento,Formacao,Cursocursando,Alunostatus,Matricula
-Anselmo,ansrsilva@gmail.Com,14997840622,Gustavo Soares,1-124,Upa,Bauru 22,Bauru,Sp,17031591,Roberto,360900800-17,31632,Analista,Ads,True,112233
-Carlos,carlossilva@gmail.Com,14997840622,Gustavo Soares,1-124,Upa,Bauru 22,Bauru,Sp,17031591,Roberto,360900800-17,31632,Analista,Ads,True,112244
-Jonas,jonas@gmail.Com,14997840622,Gustavo Soares,1-124,Upa,Bauru 22,Bauru,Sp,17031591,Roberto,360900800-17,31632,Analista,Ads,True,112255
-Willson,willnunes@gmail.Com,14997840622,Gustavo Soares,1-124,Upa,Bauru 22,Bauru,Sp,17031591,Roberto,360900800-17,31632,Analista,Ads,True,112266
