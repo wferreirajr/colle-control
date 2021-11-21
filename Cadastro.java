@@ -126,6 +126,7 @@ public class Cadastro {
             dadosAlun += "," + newAlu.getMatricula();
 
             break;
+        
         }
 
         pessoa.setEmail(leitor.nextLine());
